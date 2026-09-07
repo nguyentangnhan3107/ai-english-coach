@@ -1,0 +1,59 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --color-accent: #2563eb;
+
+  --font-base-size: 16px;
+  --line-height-base: 1.5;
+
+  --focus-ring: 2px solid #2563eb;
+  --focus-offset: 2px;
+
+  --dialog-width: 450px;
+  --dialog-height: auto;
+  --dialog-border: 1px solid #e5e7eb;
+  --dialog-radius: 8px;
+  --dialog-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+body[data-font-size="medium"] {
+  --font-base-size: 16px;
+}
+
+body[data-font-size="large"] {
+  --font-base-size: 20px;
+}
+
+body[data-font-size="xlarge"] {
+  --font-base-size: 24px;
+}
+
+body[data-mode="accessibility"] {
+  --line-height-base: 1.8;
+  --focus-ring: 3px solid #000000;
+  --focus-offset: 3px;
+
+  --dialog-width: 100vw;
+  --dialog-height: 100vh;
+  --dialog-border: none;
+  --dialog-radius: 0;
+  --dialog-shadow: none;
+}
+
+body[data-mode="accessibility"][data-font-size="medium"] {
+  --font-base-size: 20px;
+}
+
+body[data-high-contrast="true"] {
+  --bg-primary: #000000;
+  --bg-secondary: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #fde047;
+  --border-color: #ffffff;
+  --color-accent: #fde047;
+  --focus-ring: 4px solid #fde047;
+  --focus-offset: 4px;
+}

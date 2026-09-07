@@ -1,0 +1,822 @@
+/* =========================================================
+   PRONUNCIATION PAGE
+   ========================================================= */
+
+.pronunciation-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 24px;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LEVEL / TOPIC CARD
+   ========================================================= */
+
+.level-card {
+  width: 100%;
+  max-width: 700px;
+  margin: 40px auto 0;
+  padding: 35px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.level-card h2 {
+  margin-top: 0;
+}
+
+.level-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   LEVEL GRID
+   ========================================================= */
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.level-button {
+  min-width: 0;
+  padding: 20px 10px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.level-button:hover {
+  border-color: #111827;
+  transform: translateY(-2px);
+}
+
+.level-button.selected {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+.level-name {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.level-description {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   TOPIC GRID
+   ========================================================= */
+
+.topic-grid {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.topic-button {
+  min-width: 0;
+  padding: 22px;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  background: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.topic-button:hover {
+  border-color: #111827;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SELECTED LEVEL
+   ========================================================= */
+
+.selected-level {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.back-level-button {
+  margin-bottom: 15px;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 9px;
+  background: #e5e7eb;
+  color: #111827;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-level-button:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   START PRACTICE
+   ========================================================= */
+
+.start-practice-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #111827;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.start-practice-button:hover {
+  background: #1f2937;
+  transform: translateY(-1px);
+}
+
+.start-practice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   PRONUNCIATION CARD
+   ========================================================= */
+
+.pronunciation-card {
+  width: 100%;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   WORD DISPLAY
+   ========================================================= */
+
+.word-display {
+  width: 100%;
+}
+
+.word-label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.word-display h2 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin: 12px 0 5px;
+  overflow-wrap: anywhere;
+}
+
+.word-display p {
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SENTENCE COUNTER
+   ========================================================= */
+
+.sentence-counter {
+  text-align: center;
+  margin: 20px 0;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* =========================================================
+   RECORD BUTTON
+   ========================================================= */
+
+.record-button {
+  margin-top: 25px;
+  min-height: 50px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.record-button:hover {
+  transform: translateY(-2px);
+  background: #1d4ed8;
+}
+
+.record-button.recording {
+  background: #dc2626;
+  transform: scale(1.03);
+}
+
+.record-button.recording:hover {
+  background: #b91c1c;
+}
+
+.record-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.pronunciation-status {
+  margin-top: 20px;
+  color: #6b7280;
+  line-height: 1.5;
+  min-height: 24px;
+}
+
+/* =========================================================
+   AUDIO PREVIEW
+   ========================================================= */
+
+.audio-preview {
+  width: 100%;
+  margin-top: 25px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.audio-preview p {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.audio-player {
+  width: 100%;
+  max-width: 550px;
+}
+
+.play-audio-button,
+.delete-audio-button {
+  padding: 10px 18px;
+  margin: 8px 5px 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.play-audio-button {
+  background: #111827;
+  color: white;
+}
+
+.play-audio-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.play-audio-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.delete-audio-button {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.delete-audio-button:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PRONUNCIATION RESULT
+   ========================================================= */
+
+.pronunciation-result {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 35px;
+  padding: 25px;
+  background: #f9fafb;
+  border-radius: 18px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.score-circle {
+  width: 110px;
+  height: 110px;
+  flex: 0 0 110px;
+  border: 8px solid #111827;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.score-number {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-label {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.result-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.result-content h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.result-content p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SENTENCE NAVIGATION
+   ========================================================= */
+
+.sentence-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.sentence-navigation button {
+  min-height: 44px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.sentence-navigation button:hover:not(:disabled) {
+  background: #1f2937;
+  transform: translateY(-1px);
+}
+
+.sentence-navigation button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   MEANING
+   ========================================================= */
+
+.target-meaning {
+  margin-top: 12px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   COMPLETION
+   ========================================================= */
+
+.completion-card {
+  width: 100%;
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 45px 30px;
+  background: white;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.completion-icon {
+  font-size: 60px;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.completion-card h1 {
+  margin: 0 0 10px;
+}
+
+.completion-card h2 {
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+
+.completion-card p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   KEYBOARD FOCUS
+   ========================================================= */
+
+.level-button:focus-visible,
+.topic-button:focus-visible,
+.back-level-button:focus-visible,
+.start-practice-button:focus-visible,
+.record-button:focus-visible,
+.play-audio-button:focus-visible,
+.delete-audio-button:focus-visible,
+.sentence-navigation button:focus-visible {
+  outline: 4px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   ACCESSIBILITY MODE
+   ========================================================= */
+
+body[data-mode='accessibility']
+.level-button:focus-visible,
+
+body[data-mode='accessibility']
+.topic-button:focus-visible,
+
+body[data-mode='accessibility']
+.back-level-button:focus-visible,
+
+body[data-mode='accessibility']
+.start-practice-button:focus-visible,
+
+body[data-mode='accessibility']
+.record-button:focus-visible,
+
+body[data-mode='accessibility']
+.play-audio-button:focus-visible,
+
+body[data-mode='accessibility']
+.delete-audio-button:focus-visible,
+
+body[data-mode='accessibility']
+.sentence-navigation button:focus-visible {
+  outline: 5px solid #f59e0b;
+  outline-offset: 5px;
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, 0.25);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .level-button,
+  .topic-button,
+  .back-level-button,
+  .start-practice-button,
+  .record-button,
+  .play-audio-button,
+  .delete-audio-button,
+  .sentence-navigation button {
+    transition: none;
+  }
+
+  .level-button:hover,
+  .topic-button:hover,
+  .back-level-button:hover,
+  .start-practice-button:hover,
+  .record-button:hover,
+  .play-audio-button:hover,
+  .delete-audio-button:hover,
+  .sentence-navigation button:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 750px) {
+  .pronunciation-page {
+    padding: 40px 20px;
+  }
+
+  .pronunciation-card {
+    padding: 30px 24px;
+  }
+
+  .level-card {
+    padding: 28px 22px;
+  }
+
+  .word-display h2 {
+    font-size: 40px;
+  }
+
+  .pronunciation-result {
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .pronunciation-page {
+    padding: 28px 14px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .level-card {
+    margin-top: 25px;
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .level-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .level-button {
+    padding: 16px 8px;
+    border-radius: 12px;
+  }
+
+  .level-name {
+    font-size: 21px;
+  }
+
+  .level-description {
+    font-size: 12px;
+  }
+
+  .topic-grid {
+    margin: 25px auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .topic-button {
+    min-height: 70px;
+    padding: 16px 10px;
+    border-radius: 13px;
+    font-size: 15px;
+  }
+
+  .back-level-button {
+    min-height: 42px;
+    margin-bottom: 12px;
+  }
+
+  .pronunciation-card {
+    padding: 25px 16px;
+    border-radius: 17px;
+  }
+
+  .word-label {
+    font-size: 13px;
+  }
+
+  .word-display h2 {
+    font-size: 32px;
+    margin: 10px 0 5px;
+  }
+
+  .word-display p {
+    font-size: 16px;
+  }
+
+  .target-meaning {
+    font-size: 15px;
+  }
+
+  .sentence-counter {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .record-button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 20px;
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .pronunciation-status {
+    font-size: 14px;
+  }
+
+  .audio-preview {
+    margin-top: 22px;
+  }
+
+  .audio-player {
+    width: 100%;
+  }
+
+  .play-audio-button,
+  .delete-audio-button {
+    min-height: 42px;
+    padding: 10px 14px;
+  }
+
+  .pronunciation-result {
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 25px;
+    padding: 20px 16px;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    flex-basis: 100px;
+  }
+
+  .score-number {
+    font-size: 27px;
+  }
+
+  .result-content {
+    width: 100%;
+  }
+
+  .result-content h3 {
+    font-size: 18px;
+  }
+
+  .result-content p {
+    font-size: 14px;
+  }
+
+  .sentence-navigation {
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .sentence-navigation button {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 8px;
+    font-size: 14px;
+  }
+
+  .completion-card {
+    margin: 35px auto;
+    padding: 35px 20px;
+    border-radius: 17px;
+  }
+
+  .completion-icon {
+    font-size: 52px;
+  }
+
+  .completion-card h1 {
+    font-size: 28px;
+  }
+
+  .completion-card h2 {
+    font-size: 21px;
+  }
+
+  .start-practice-button {
+    min-height: 50px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .pronunciation-page {
+    padding: 24px 10px;
+  }
+
+  .page-title {
+    font-size: 25px;
+  }
+
+  .topic-button {
+    padding: 14px 7px;
+    font-size: 14px;
+  }
+
+  .level-button {
+    padding: 14px 6px;
+  }
+
+  .level-name {
+    font-size: 19px;
+  }
+
+  .word-display h2 {
+    font-size: 28px;
+  }
+
+  .pronunciation-card {
+    padding: 22px 13px;
+  }
+
+  .sentence-navigation button {
+    font-size: 13px;
+    padding: 10px 5px;
+  }
+}

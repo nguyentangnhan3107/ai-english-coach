@@ -1,0 +1,1062 @@
+.conversation-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  position: relative;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 35px;
+}
+
+/* =====================================================
+   SETUP
+   ===================================================== */
+
+.setup-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  padding: 35px;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.setup-card h2 {
+  font-size: 20px;
+  margin: 0 0 18px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.topic-card {
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 18px;
+  padding: 20px 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.topic-card:hover {
+  transform: translateY(-3px);
+  border-color: #9ca3af;
+}
+
+.topic-card.selected {
+  border-color: #111827;
+  background: #f9fafb;
+}
+
+.topic-icon {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.topic-card strong {
+  display: block;
+  font-size: 16px;
+}
+
+.topic-card small {
+  display: block;
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.level-title {
+  margin-top: 35px !important;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.level-card {
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.level-card:hover {
+  border-color: #9ca3af;
+}
+
+.level-card.selected {
+  border-color: #111827;
+  background: #f3f4f6;
+}
+
+.level-card strong {
+  display: block;
+  font-size: 20px;
+}
+
+.level-card small {
+  color: #6b7280;
+}
+
+.start-conversation-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: #111827;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.start-conversation-button:hover {
+  background: #1f2937;
+}
+
+.start-conversation-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   CHAT
+   ===================================================== */
+
+.chat-page {
+  max-width: 1100px;
+}
+
+.conversation-card {
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.chat-header {
+  height: 70px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 15px;
+}
+
+.chat-info {
+  flex: 1;
+}
+
+.chat-info h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.chat-info span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.history-button,
+.new-chat-icon {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.history-button:hover,
+.new-chat-icon:hover {
+  background: #e5e7eb;
+}
+
+/* =====================================================
+   CHAT BOX
+   ===================================================== */
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 430px;
+  max-height: 550px;
+  overflow-y: auto;
+  padding: 25px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 14px 18px;
+  border-radius: 17px;
+  line-height: 1.5;
+}
+
+.message p {
+  margin: 6px 0 0;
+}
+
+.message-label {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ai-message {
+  align-self: flex-start;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: #111827;
+  color: white;
+}
+
+.speak-button {
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+  color: #4b5563;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.speak-button:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   THINKING
+   ===================================================== */
+
+.thinking {
+  display: flex;
+  gap: 4px;
+}
+
+.thinking span {
+  animation: thinking 1.2s infinite;
+}
+
+.thinking span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinking {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+  }
+
+  30% {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   INPUT
+   ===================================================== */
+
+.conversation-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.conversation-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 13px;
+  font-size: 16px;
+  outline: none;
+}
+
+.conversation-input input:focus {
+  border-color: #111827;
+}
+
+.conversation-input input:disabled {
+  background: #f9fafb;
+}
+
+.mic-button,
+.send-button {
+  height: 48px;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mic-button {
+  width: 48px;
+  background: #f3f4f6;
+  font-size: 20px;
+}
+
+.mic-button:hover {
+  background: #e5e7eb;
+}
+
+.mic-button.recording {
+  background: #fee2e2;
+}
+
+.send-button {
+  padding: 0 20px;
+  background: #111827;
+  color: white;
+}
+
+.send-button:hover {
+  background: #1f2937;
+}
+
+.send-button:disabled,
+.mic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.recording-status {
+  margin: -10px 18px 15px;
+  color: #dc2626;
+  font-size: 13px;
+}
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+.conversation-sidebar {
+  position: fixed;
+  top: 0;
+  left: -330px;
+  width: 310px;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.12);
+  transition: left 0.25s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.conversation-sidebar.sidebar-open {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header button {
+  border: none;
+  background: #f3f4f6;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.new-chat-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.new-chat-button:hover {
+  background: #f9fafb;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: calc(100vh - 130px);
+}
+
+/* =====================================================
+   HISTORY ITEM
+   ===================================================== */
+
+.history-item-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  border-radius: 12px;
+}
+
+.history-item-wrapper:hover,
+.history-item-wrapper.active {
+  background: #f3f4f6;
+}
+
+.history-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.history-item:hover {
+  background: #e5e7eb;
+}
+
+.history-item.active {
+  background: #e5e7eb;
+}
+
+.history-item strong {
+  display: block;
+}
+
+.history-item small {
+  display: block;
+  color: #6b7280;
+  margin-top: 3px;
+}
+
+/* =====================================================
+   DELETE HISTORY BUTTON
+   ===================================================== */
+
+.delete-history {
+  flex: 0 0 42px;
+  width: 42px;
+  min-width: 42px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.45;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.history-item-wrapper:hover .delete-history,
+.delete-history:focus-visible {
+  opacity: 1;
+}
+
+.delete-history:hover {
+  background: #fee2e2;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.delete-history:active {
+  transform: scale(0.95);
+}
+
+.empty-history {
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
+/* =========================================================
+   ♿ ACCESSIBILITY — KEYBOARD FOCUS
+   ========================================================= */
+
+.history-button:focus-visible,
+.new-chat-icon:focus-visible,
+.sidebar-header button:focus-visible,
+.new-chat-button:focus-visible,
+.history-item:focus-visible,
+.delete-history:focus-visible,
+.speak-button:focus-visible,
+.mic-button:focus-visible,
+.send-button:focus-visible,
+.topic-card:focus-visible,
+.level-card:focus-visible,
+.start-conversation-button:focus-visible {
+
+  outline: 4px solid #2563eb;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   ♿ ACCESSIBILITY — DELETE BUTTON
+   ========================================================= */
+
+.delete-history:focus-visible {
+  background: #fee2e2;
+  opacity: 1;
+}
+
+/*
+ * Chế độ hỗ trợ người khiếm thị:
+ * focus vàng, đậm và dễ nhận biết hơn.
+ */
+
+body[data-mode='accessibility']
+.history-button:focus-visible,
+
+body[data-mode='accessibility']
+.new-chat-icon:focus-visible,
+
+body[data-mode='accessibility']
+.sidebar-header button:focus-visible,
+
+body[data-mode='accessibility']
+.new-chat-button:focus-visible,
+
+body[data-mode='accessibility']
+.history-item:focus-visible,
+
+body[data-mode='accessibility']
+.delete-history:focus-visible,
+
+body[data-mode='accessibility']
+.speak-button:focus-visible,
+
+body[data-mode='accessibility']
+.mic-button:focus-visible,
+
+body[data-mode='accessibility']
+.send-button:focus-visible,
+
+body[data-mode='accessibility']
+.topic-card:focus-visible,
+
+body[data-mode='accessibility']
+.level-card:focus-visible,
+
+body[data-mode='accessibility']
+.start-conversation-button:focus-visible {
+
+  outline: 5px solid #f59e0b;
+  outline-offset: 5px;
+
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, 0.25);
+}
+
+/*
+ * Delete button trong accessibility mode.
+ */
+
+body[data-mode='accessibility']
+.delete-history:focus-visible {
+  background: #fef3c7;
+  opacity: 1;
+}
+
+/*
+ * Input cũng phải có focus rõ ràng.
+ */
+
+body[data-mode='accessibility']
+.conversation-input input:focus {
+
+  border-color: #f59e0b;
+
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, 0.25);
+}
+
+/*
+ * Không để focus bị làm mờ bởi opacity.
+ */
+
+body[data-mode='accessibility']
+.history-button:focus-visible,
+
+body[data-mode='accessibility']
+.new-chat-button:focus-visible,
+
+body[data-mode='accessibility']
+.history-item:focus-visible,
+
+body[data-mode='accessibility']
+.delete-history:focus-visible,
+
+body[data-mode='accessibility']
+.speak-button:focus-visible,
+
+body[data-mode='accessibility']
+.mic-button:focus-visible,
+
+body[data-mode='accessibility']
+.send-button:focus-visible {
+
+  opacity: 1;
+}
+
+/* =========================================================
+   ♿ ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+body[data-mode='accessibility']
+.topic-card:hover,
+
+body[data-mode='accessibility']
+.level-card:hover {
+
+  transform: none;
+}
+
+body[data-mode='accessibility']
+.thinking span {
+
+  animation: none;
+  opacity: 0.65;
+}
+
+body[data-mode='accessibility']
+.conversation-sidebar {
+
+  transition: none;
+}
+
+body[data-mode='accessibility']
+.delete-history {
+
+  transition: none;
+}
+
+/* =========================================================
+   SYSTEM REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .topic-card,
+  .level-card,
+  .conversation-sidebar,
+  .history-button,
+  .new-chat-icon,
+  .delete-history {
+
+    transition: none;
+  }
+
+  .topic-card:hover,
+  .level-card:hover {
+
+    transform: none;
+  }
+
+  .thinking span {
+
+    animation: none;
+    opacity: 0.65;
+  }
+
+  .delete-history:hover {
+
+    transform: none;
+  }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .conversation-page {
+    padding: 25px 12px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .setup-card {
+    padding: 20px;
+  }
+
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .level-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .message {
+    max-width: 85%;
+  }
+
+  .chat-box {
+    min-height: 400px;
+    padding: 18px;
+  }
+
+  .conversation-input {
+    padding: 12px;
+  }
+
+  .send-button {
+    padding: 0 15px;
+  }
+
+  .conversation-sidebar {
+    width: min(310px, 90vw);
+    left: -100vw;
+  }
+
+  .conversation-sidebar.sidebar-open {
+    left: 0;
+  }
+
+  .delete-history {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   FINAL UI POLISH — CONVERSATION
+   ========================================================= */
+
+.conversation-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.setup-card,
+.conversation-card {
+  box-sizing: border-box;
+}
+
+.topic-card,
+.level-card {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.topic-card strong,
+.topic-card small,
+.level-card strong,
+.level-card small {
+  overflow-wrap: anywhere;
+}
+
+.chat-box {
+  scroll-behavior: smooth;
+}
+
+.message {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.conversation-input input {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.mic-button,
+.send-button,
+.history-button,
+.new-chat-icon {
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .conversation-page {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .setup-card {
+    padding: 28px 22px;
+  }
+
+  .topic-grid {
+    gap: 12px;
+  }
+
+  .level-grid {
+    gap: 10px;
+  }
+
+  .message {
+    max-width: 80%;
+  }
+}
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .conversation-page {
+    padding: 22px 10px;
+  }
+
+  .page-title {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .setup-card {
+    padding: 20px 14px;
+    border-radius: 17px;
+  }
+
+  .setup-card h2 {
+    font-size: 18px;
+  }
+
+  .topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .topic-card {
+    min-height: 82px;
+    padding: 15px 8px;
+    border-radius: 14px;
+  }
+
+  .topic-icon {
+    font-size: 27px;
+    margin-bottom: 7px;
+  }
+
+  .topic-card strong {
+    font-size: 14px;
+  }
+
+  .topic-card small {
+    font-size: 11px;
+  }
+
+  .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .level-card {
+    padding: 14px 10px;
+    border-radius: 13px;
+  }
+
+  .level-card strong {
+    font-size: 18px;
+  }
+
+  .level-card small {
+    font-size: 11px;
+  }
+
+  .start-conversation-button {
+    min-height: 50px;
+    margin-top: 22px;
+  }
+
+  /* Chat */
+
+  .conversation-card {
+    border-radius: 17px;
+  }
+
+  .chat-header {
+    height: 62px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .chat-info h1 {
+    font-size: 16px;
+  }
+
+  .chat-info span {
+    font-size: 11px;
+  }
+
+  .history-button,
+  .new-chat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .chat-box {
+    min-height: 380px;
+    max-height: 55vh;
+    padding: 15px 11px;
+    gap: 13px;
+  }
+
+  .message {
+    max-width: 88%;
+    padding: 11px 13px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+
+  .message-label {
+    font-size: 11px;
+  }
+
+  .message p {
+    line-height: 1.55;
+  }
+
+  .conversation-input {
+    padding: 9px;
+    gap: 7px;
+  }
+
+  .conversation-input input {
+    min-height: 44px;
+    padding: 11px 12px;
+    font-size: 15px;
+  }
+
+  .mic-button,
+  .send-button {
+    height: 44px;
+  }
+
+  .mic-button {
+    width: 44px;
+  }
+
+  .send-button {
+    padding: 0 14px;
+  }
+
+  .recording-status {
+    margin: -5px 10px 10px;
+    font-size: 12px;
+  }
+
+  /* Sidebar */
+
+  .conversation-sidebar {
+    width: min(320px, 88vw);
+    padding: 16px;
+  }
+
+  .history-item {
+    padding: 11px 9px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .conversation-page {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .topic-card {
+    min-height: 76px;
+    padding: 12px 6px;
+  }
+
+  .topic-card strong {
+    font-size: 13px;
+  }
+
+  .chat-box {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .message {
+    max-width: 92%;
+    font-size: 13px;
+  }
+
+  .conversation-input {
+    gap: 5px;
+  }
+
+  .conversation-input input {
+    font-size: 14px;
+  }
+
+  .mic-button {
+    width: 40px;
+  }
+
+  .send-button {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+}

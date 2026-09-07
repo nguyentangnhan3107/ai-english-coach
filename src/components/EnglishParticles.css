@@ -1,0 +1,662 @@
+/* =========================================================
+   ENGLISH PARTICLES
+   AI English Coach
+   STEP 3 — BACKGROUND + GLASS
+   ========================================================= */
+
+.english-particles {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+  user-select: none;
+
+  /*
+   * Particle nằm phía sau UI
+   */
+  z-index: -1;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.english-particles::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(190, 220, 255, 0.28),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 18%,
+      rgba(220, 205, 255, 0.25),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 75% 78%,
+      rgba(190, 235, 255, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(225, 215, 255, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fbff 45%,
+      #fbf9ff 100%
+    );
+
+  pointer-events: none;
+
+  z-index: -2;
+}
+
+/* =========================================================
+   AMBIENT LIGHT
+   ========================================================= */
+
+.english-particles::after {
+  content: '';
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  left: 50%;
+  top: 48%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(210, 230, 255, 0.16) 0%,
+      rgba(230, 220, 255, 0.08) 35%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  pointer-events: none;
+
+  animation: ambient-breathe 8s ease-in-out infinite;
+
+  z-index: -1;
+}
+
+@keyframes ambient-breathe {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+
+    opacity: 0.85;
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
+
+    opacity: 0.55;
+  }
+}
+
+/* =========================================================
+   POSITION LAYER
+   ========================================================= */
+
+.english-particle-position {
+  position: absolute;
+
+  display: block;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* =========================================================
+   BASE PARTICLE
+   ========================================================= */
+
+.english-particle {
+  display: block;
+
+  line-height: 1;
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+/* =========================================================
+   ✨ EMOJI
+   ========================================================= */
+
+.english-particle-emoji {
+  animation-name: emoji-float;
+  animation-duration: 8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  animation-delay:
+    calc(var(--particle-index) * -0.4s);
+
+  filter:
+    drop-shadow(
+      0 3px 6px rgba(35, 55, 80, 0.10)
+    )
+    drop-shadow(
+      0 0 8px rgba(255, 255, 255, 0.45)
+    );
+}
+
+/* Large */
+
+.english-particle-large.english-particle-emoji {
+  font-size: 2rem;
+  opacity: 0.65;
+
+  animation-duration: 11s;
+}
+
+/* Medium */
+
+.english-particle-medium.english-particle-emoji {
+  font-size: 1.45rem;
+  opacity: 0.52;
+
+  animation-duration: 9s;
+}
+
+/* Small */
+
+.english-particle-small.english-particle-emoji {
+  font-size: 1rem;
+  opacity: 0.42;
+
+  animation-duration: 7s;
+}
+
+/* =========================================================
+   🌊 EMOJI ANIMATION
+   ========================================================= */
+
+@keyframes emoji-float {
+  0% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  20% {
+    transform:
+      translate(20px, -15px)
+      rotate(4deg);
+  }
+
+  40% {
+    transform:
+      translate(35px, -35px)
+      rotate(-3deg);
+  }
+
+  60% {
+    transform:
+      translate(10px, -50px)
+      rotate(5deg);
+  }
+
+  80% {
+    transform:
+      translate(-25px, -20px)
+      rotate(-4deg);
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+}
+
+/* =========================================================
+   EMOJI MOTION LEFT
+   ========================================================= */
+
+.english-particle-position:nth-child(3n + 1)
+.english-particle-emoji {
+  animation-name: emoji-float-left;
+}
+
+@keyframes emoji-float-left {
+  0% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate(-20px, -20px)
+      rotate(-4deg);
+  }
+
+  50% {
+    transform:
+      translate(-35px, -5px)
+      rotate(4deg);
+  }
+
+  75% {
+    transform:
+      translate(-15px, 25px)
+      rotate(-2deg);
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+}
+
+/* =========================================================
+   EMOJI MOTION RIGHT
+   ========================================================= */
+
+.english-particle-position:nth-child(3n + 2)
+.english-particle-emoji {
+  animation-name: emoji-float-right;
+}
+
+@keyframes emoji-float-right {
+  0% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate(18px, -25px)
+      rotate(3deg);
+  }
+
+  50% {
+    transform:
+      translate(35px, -5px)
+      rotate(-4deg);
+  }
+
+  75% {
+    transform:
+      translate(12px, 22px)
+      rotate(2deg);
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(0deg);
+  }
+}
+
+/* =========================================================
+   💎 GLASS WORDS
+   ========================================================= */
+
+.english-particle-word {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 11px;
+
+  border-radius: 10px;
+
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+
+  color: rgba(25, 45, 70, 0.78);
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(180, 195, 215, 0.42);
+
+  box-shadow:
+    0 8px 22px rgba(35, 55, 80, 0.10),
+    0 2px 6px rgba(35, 55, 80, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  opacity: 0.9;
+
+  will-change: transform;
+
+  animation:
+    word-float
+    9s
+    ease-in-out
+    infinite;
+
+  animation-delay:
+    calc(var(--particle-index) * -0.5s);
+}
+
+/* Glass highlight */
+
+.english-particle-word::before {
+  content: '';
+
+  position: absolute;
+
+  top: 2px;
+  left: 15%;
+
+  width: 70%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  opacity: 0.9;
+}
+
+/* =========================================================
+   🌊 WORD ANIMATION
+   ========================================================= */
+
+@keyframes word-float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(15px, -12px);
+  }
+
+  50% {
+    transform: translate(-10px, -25px);
+  }
+
+  75% {
+    transform: translate(-18px, -5px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* =========================================================
+   ✨ SPARKLE
+   ========================================================= */
+
+.english-particle-small.english-particle-emoji {
+  animation-name: sparkle-float;
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(8px, -18px)
+      scale(1.15);
+
+    opacity: 0.75;
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   ♿ ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .english-particle-emoji,
+  .english-particle-word {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .english-particle-large.english-particle-emoji {
+    font-size: 1.45rem;
+  }
+
+  .english-particle-medium.english-particle-emoji {
+    font-size: 1.15rem;
+  }
+
+  .english-particle-small.english-particle-emoji {
+    font-size: 0.8rem;
+  }
+
+  .english-particle-word {
+    font-size: 0.62rem;
+    padding: 4px 7px;
+    border-radius: 8px;
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
+}
+
+/* =========================================================
+   🧩 STEP 4 — INTERACTION
+   ========================================================= */
+
+/* =========================================================
+   🖱️ MOUSE AMBIENT
+   ========================================================= */
+
+.english-particles::after {
+  left: var(--mouse-x);
+  top: var(--mouse-y);
+
+  transition:
+    left 0.8s ease-out,
+    top 0.8s ease-out;
+}
+
+/* =========================================================
+   💎 GLASS SHIMMER
+   ========================================================= */
+
+.english-particle-word {
+  overflow: hidden;
+}
+
+.english-particle-word::after {
+  content: '';
+
+  position: absolute;
+
+  top: -20%;
+  left: -80%;
+
+  width: 45%;
+  height: 140%;
+
+  transform: rotate(18deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.55),
+      transparent
+    );
+
+  opacity: 0;
+
+  animation:
+    glass-shimmer
+    7s
+    ease-in-out
+    infinite;
+
+  animation-delay:
+    calc(var(--particle-index) * 0.8s);
+}
+
+@keyframes glass-shimmer {
+  0%,
+  65% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  72% {
+    opacity: 0.5;
+  }
+
+  82% {
+    left: 140%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 140%;
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   ✨ SPARKLE PULSE
+   ========================================================= */
+
+.english-particle-small.english-particle-emoji {
+  animation:
+    sparkle-float
+    4s
+    ease-in-out
+    infinite;
+
+  animation-delay:
+    calc(var(--particle-index) * -0.7s);
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform:
+      translate(0, 0)
+      scale(0.9)
+      rotate(0deg);
+
+    opacity: 0.25;
+  }
+
+  50% {
+    transform:
+      translate(8px, -14px)
+      scale(1.2)
+      rotate(8deg);
+
+    opacity: 0.8;
+  }
+
+  100% {
+    transform:
+      translate(0, 0)
+      scale(0.9)
+      rotate(0deg);
+
+    opacity: 0.25;
+  }
+}
+/* =========================================================
+   ♿ ACCESSIBILITY — PARTICLES
+   ========================================================= */
+
+body[data-mode='accessibility']
+.english-particle-emoji,
+body[data-mode='accessibility']
+.english-particle-word {
+  opacity: 0.18;
+
+  animation: none !important;
+}
+
+/*
+ * Vẫn giữ particle làm background,
+ * nhưng không để nó gây nhiễu thị giác.
+ */
+
+body[data-mode='accessibility']
+.english-particles::after {
+  opacity: 0.25;
+
+  animation: none !important;
+}
+
+/* =========================================================
+   ♿ KEYBOARD FOCUS
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 4px solid #2563eb;
+  outline-offset: 4px;
+}
+
+body[data-mode='accessibility']
+button:focus-visible,
+body[data-mode='accessibility']
+a:focus-visible {
+  outline: 5px solid #f59e0b;
+  outline-offset: 5px;
+}

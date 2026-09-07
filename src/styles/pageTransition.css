@@ -1,0 +1,133 @@
+/* =========================================================
+   🚪 AI ENGLISH COACH
+   PAGE TRANSITION
+   ========================================================= */
+
+.page-transition-wrapper {
+  animation:
+    page-transition-in
+    0.48s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
+  transform-origin:
+    center top;
+}
+
+
+/* =========================================================
+   ENTER
+   ========================================================= */
+
+@keyframes page-transition-in {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(18px)
+      scale(0.985);
+
+    filter:
+      blur(4px);
+  }
+
+  55% {
+    opacity: 0.75;
+
+    transform:
+      translateY(5px)
+      scale(0.995);
+
+    filter:
+      blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+}
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .page-transition-wrapper {
+    animation: none;
+  }
+
+}   
+/* =========================================================
+   🚪 PAGE TRANSITION
+   ========================================================= */
+
+.page-transition-wrapper {
+  animation:
+    page-transition-in
+    0.48s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
+  transform-origin: center top;
+}
+
+@keyframes page-transition-in {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(18px)
+      scale(0.985);
+
+    filter: blur(4px);
+  }
+
+  55% {
+    opacity: 0.75;
+
+    transform:
+      translateY(5px)
+      scale(0.995);
+
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+/* =========================================================
+   ♿ ACCESSIBILITY MODE
+   ========================================================= */
+
+body[data-mode='accessibility']
+.page-transition-wrapper {
+  animation: none;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-wrapper {
+    animation: none;
+  }
+}
