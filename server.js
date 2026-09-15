@@ -311,21 +311,6 @@ ${text.trim()}
 // =====================================================
 // SPEECH TO TEXT
 // =====================================================
-// Translation.jsx gọi:
-//
-// POST /api/speech-to-text
-//
-// FormData:
-// - audio
-// - language
-//
-// Trả về:
-//
-// {
-//   transcript: "..."
-// }
-//
-// =====================================================
 
 app.post(
   '/api/speech-to-text',
@@ -335,10 +320,6 @@ app.post(
       console.log(
         '\n🎙️ ===== SPEECH TO TEXT ====='
       );
-
-      // -------------------------------------------------
-      // KIỂM TRA AUDIO
-      // -------------------------------------------------
 
       if (!req.file) {
         return res.status(400).json({
@@ -374,18 +355,10 @@ app.post(
         languageName
       );
 
-      // -------------------------------------------------
-      // CHUYỂN AUDIO → BASE64
-      // -------------------------------------------------
-
       const audioBase64 =
         req.file.buffer.toString(
           'base64'
         );
-
-      // -------------------------------------------------
-      // PROMPT
-      // -------------------------------------------------
 
       const prompt = `
 You are a speech recognition system.
@@ -416,10 +389,6 @@ Return exactly:
       console.log(
         '🤖 Sending speech audio to Gemini...'
       );
-
-      // -------------------------------------------------
-      // GEMINI
-      // -------------------------------------------------
 
       const response =
         await ai.models.generateContent({
@@ -459,10 +428,6 @@ Return exactly:
         rawText
       );
 
-      // -------------------------------------------------
-      // PARSE JSON
-      // -------------------------------------------------
-
       let result;
 
       try {
@@ -491,10 +456,6 @@ Return exactly:
         );
       }
 
-      // -------------------------------------------------
-      // RESPONSE
-      // -------------------------------------------------
-
       console.log(
         'Transcript:',
         transcript
@@ -514,20 +475,12 @@ Return exactly:
         error
       );
 
-      // -------------------------------------------------
-      // QUOTA
-      // -------------------------------------------------
-
       if (isQuotaError(error)) {
         return quotaResponse(
           res,
           error.message
         );
       }
-
-      // -------------------------------------------------
-      // ERROR JSON
-      // -------------------------------------------------
 
       return res.status(500).json({
         error:
@@ -846,10 +799,6 @@ Rules:
         '❌ Start Conversation Error:',
         error
       );
-
-      // =================================================
-      // FALLBACK KHI HẾT QUOTA
-      // =================================================
 
       if (isQuotaError(error)) {
         const topic =
@@ -1285,9 +1234,26 @@ ${conversationHistory || '(No previous messages)'}
 );
 
 // =====================================================
+// HEALTH CHECK
+// =====================================================
+// ĐẶT TRƯỚC UNKNOWN API ROUTE
+// để Express không bắt /api/health vào 404.
+// =====================================================
+
+app.get(
+  '/api/health',
+  (req, res) => {
+    res.json({
+      status: 'OK',
+      message:
+        'Server đang chạy bình thường!',
+    });
+  }
+);
+
+// =====================================================
 // UNKNOWN API ROUTE
 // =====================================================
-// Quan trọng:
 // Không để Express trả HTML 404 cho các API.
 // Frontend luôn nhận JSON.
 // =====================================================
@@ -1332,21 +1298,6 @@ app.use(
       details:
         error.message,
       quotaExceeded: false,
-    });
-  }
-);
-
-// =====================================================
-// HEALTH CHECK
-// =====================================================
-
-app.get(
-  '/api/health',
-  (req, res) => {
-    res.json({
-      status: 'OK',
-      message:
-        'Server đang chạy bình thường!',
     });
   }
 );
