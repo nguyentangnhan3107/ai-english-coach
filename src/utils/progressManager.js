@@ -8,6 +8,7 @@ const DEFAULT_PROGRESS = {
   translationCount: 0,
   pronunciationCount: 0,
   conversationCount: 0,
+  pronunciationTopics: {},
 };
 
 
@@ -178,6 +179,44 @@ export function recordLearning(
   return progress;
 }
 
+export function recordPronunciationTopic(level, topic, totalSentences = 0) {
+  const progress = getProgress();
+  const key = `${level}::${topic}`;
+  const existing = progress.pronunciationTopics?.[key] || {};
+  const alreadyCompleted = Boolean(existing.completedAt);
+
+  progress.pronunciationTopics = {
+    ...(progress.pronunciationTopics || {}),
+    [key]: {
+      level, topic,
+      completed: Math.max(Number(existing.completed) || 0, Number(totalSentences) || 0),
+      total: Number(totalSentences) || Number(existing.total) || 0,
+      completedAt: existing.completedAt || new Date().toISOString(),
+    },
+  };
+
+  if (!alreadyCompleted) {
+    progress.xp += 15;
+    progress.pronunciationCount += 1;
+  }
+
+  const today = getDateKey();
+  if (progress.lastStudyDate !== today) {
+    const previousDate = progress.lastStudyDate;
+    if (!previousDate) progress.streak = 1;
+    else {
+      const previous = new Date(`${previousDate}T00:00:00`);
+      const current = new Date(`${today}T00:00:00`);
+      const difference = Math.round((current - previous) / (1000 * 60 * 60 * 24));
+      progress.streak = difference === 1 ? progress.streak + 1 : 1;
+    }
+    progress.lastStudyDate = today;
+  }
+
+  saveProgress(progress);
+  window.dispatchEvent(new CustomEvent('englishCoachProgressUpdated', { detail: progress }));
+  return { progress, firstCompletion: !alreadyCompleted };
+}
 
 /* =========================================================
    RESET
