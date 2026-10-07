@@ -13,9 +13,8 @@ import {
   pronunciationData,
 } from '../data/pronunciationData';
 
-import {
-  recordLearning,
-} from '../utils/progressManager';
+import { recordPronunciationTopic } from '../utils/progressManager';
+import { playClick, playSuccess, playComplete, playError } from '../utils/soundManager';
 
 import './Pronunciation.css';
 
@@ -125,6 +124,8 @@ export default function Pronunciation() {
     pronunciationAdvice,
     setPronunciationAdvice,
   ] = useState('');
+
+  const [completedSentences, setCompletedSentences] = useState(new Set());
 
   const [
     isAnalyzing,
@@ -475,6 +476,7 @@ export default function Pronunciation() {
 
   const handleLevelSelect =
     (level) => {
+      playClick();
       cleanupRecording();
 
       stopSpeaking();
@@ -487,6 +489,7 @@ export default function Pronunciation() {
       setIsCompleted(false);
 
       setCurrentSentence(0);
+      setCompletedSentences(new Set());
 
       setTargetText('');
       setTargetMeaning('');
@@ -507,6 +510,7 @@ export default function Pronunciation() {
 
   const handleTopicSelect =
     (topic) => {
+      playClick();
       cleanupRecording();
 
       stopSpeaking();
@@ -518,6 +522,7 @@ export default function Pronunciation() {
       setIsCompleted(false);
 
       setCurrentSentence(0);
+      setCompletedSentences(new Set());
 
       setTargetText('');
       setTargetMeaning('');
@@ -663,6 +668,15 @@ export default function Pronunciation() {
         setScore(
           result.score ?? null
         );
+
+        setCompletedSentences((old) => {
+          const next = new Set(old);
+          next.add(currentSentence);
+          return next;
+        });
+
+        if ((result.score ?? 0) >= 60) playSuccess();
+        else playError();
 
         setFeedback(
           result.feedback || ''
@@ -1060,15 +1074,13 @@ export default function Pronunciation() {
       return;
     }
 
-    /* =====================================
-       REAL PROGRESS
-       ===================================== */
-
-    recordLearning(
-      'pronunciation',
-      15
+    const result = recordPronunciationTopic(
+      selectedLevel,
+      selectedTopic,
+      activeSentences.length
     );
 
+    playComplete();
     setIsCompleted(true);
 
     const message =
@@ -1425,8 +1437,19 @@ export default function Pronunciation() {
       </div>
 
       <div className="sentence-counter">
-        Câu {currentSentence + 1} /{' '}
-        {sentences.length}
+        <div className="progress-meta">
+          <span>Tiến độ</span>
+          <strong>{completedSentences.size} / {activeSentences.length}</strong>
+        </div>
+        <div className="pronunciation-progress" role="progressbar" aria-valuemin="0" aria-valuemax={activeSentences.length} aria-valuenow={completedSentences.size}>
+          <span style={{ width: `${activeSentences.length ? (completedSentences.size / activeSentences.length) * 100 : 0}%` }} />
+        </div>
+        <div className="sentence-dots" aria-label="Tiến độ từng câu">
+          {activeSentences.map((_, index) => (
+            <span key={index} className={`sentence-dot ${completedSentences.has(index) ? 'done' : ''} ${index === currentSentence ? 'current' : ''}`} aria-label={`Câu ${index + 1} ${completedSentences.has(index) ? 'đã hoàn thành' : 'chưa hoàn thành'}`}>{completedSentences.has(index) ? '✓' : index + 1}</span>
+          ))}
+        </div>
+        <div className="current-counter">Câu {currentSentence + 1} / {sentences.length}</div>
       </div>
 
       <section className="pronunciation-card">
