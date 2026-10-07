@@ -7,6 +7,7 @@ import {
 
 import Navbar from './components/Navbar';
 import EnglishParticles from './components/EnglishParticles';
+import SoundEffects from './components/SoundEffects';
 
 import Home from './pages/Home';
 import Translation from './pages/Translation';
@@ -41,6 +42,7 @@ function App() {
       <BrowserRouter>
 
         <EnglishParticles />
+        <SoundEffects />
 
         <div className="app-content">
 
