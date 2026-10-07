@@ -14,7 +14,7 @@ import {
 } from '../data/pronunciationData';
 
 import { recordPronunciationTopic } from '../utils/progressManager';
-import { playClick, playSuccess, playComplete, playError } from '../utils/soundManager';
+import { playSuccess, playComplete, playError } from '../utils/soundManager';
 
 import './Pronunciation.css';
 
@@ -476,7 +476,6 @@ export default function Pronunciation() {
 
   const handleLevelSelect =
     (level) => {
-      playClick();
       cleanupRecording();
 
       stopSpeaking();
