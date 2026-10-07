@@ -32,7 +32,7 @@ export default function Home() {
   ];
   const rank = progress.xp >= 1000 ? 'Diamond' : progress.xp >= 500 ? 'Gold' : progress.xp >= 200 ? 'Silver' : 'Bronze';
 
-  return <main className="home">
+  return <div className="home">
     <section className="welcome">
       <div>
         <span className="eyebrow">YOUR LEARNING HUB</span>
@@ -70,5 +70,5 @@ export default function Home() {
       <div className="section-heading"><div><span className="eyebrow">WEEKLY</span><h2>🏆 Bảng xếp hạng</h2></div><span className="you-rank">Bạn</span></div>
       {[['🥇','Minh',1240],['🥈','An',950],['🥉','Khoa',870],['4.','Bạn',progress.xp]].map(([medal,name,xp]) => <div className={`leader-row ${name === 'Bạn' ? 'you' : ''`} key={name}><span>{medal}</span><b>{name}</b><strong>{xp} XP</strong></div>)}
     </section>
-  </main>;
+  </div>;
 }
