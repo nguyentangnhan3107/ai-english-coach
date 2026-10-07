@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import Translation from './pages/Translation';
 import Pronunciation from './pages/Pronunciation';
 import Conversation from './pages/Conversation';
+import Settings from './pages/Settings';
 
 import { A11yProvider } from './contexts/A11yContext';
 
@@ -31,6 +32,7 @@ function AnimatedRoutes() {
         <Route path="/translation" element={<Translation />} />
         <Route path="/pronunciation" element={<Pronunciation />} />
         <Route path="/conversation" element={<Conversation />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   );
